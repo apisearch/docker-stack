@@ -1,0 +1,15 @@
+web-admin:
+  image: apisearch/web-admin
+  ports:
+   - "7010:8080"
+  links:
+   - apisearch
+apisearch:
+  image: apisearch/apisearch
+  ports:
+   - "7011:8080"
+  links:
+   - elasticsearch
+elasticsearch:
+  image: apisearch/elasticsearch
+
