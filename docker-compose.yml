@@ -6,8 +6,14 @@ web-admin:
    - apisearch
 apisearch:
   image: apisearch/apisearch
+  command: server
   ports:
    - "7011:8080"
+  links:
+   - elasticsearch
+create-index:
+  image: apisearch/apisearch
+  command: i
   links:
    - elasticsearch
 elasticsearch:
