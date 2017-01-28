@@ -1,25 +1,23 @@
-web-admin:
-  image: apisearch/web-admin
-  ports:
-   - "7010:8080"
-  links:
-   - apisearch
-apisearch:
-  image: apisearch/apisearch
-  command: server
-  ports:
-   - "7011:8080"
-  links:
-   - elasticsearch
-import-products:
-  image: apisearch/apisearch
-  command: import
-  links:
-   - elasticsearch
-create-index:
-  image: apisearch/apisearch:latest
-  command: createIndex
-  links:
-   - elasticsearch
-elasticsearch:
-  image: apisearch/elasticsearch
+version: '2'
+
+services:
+  kibana:
+    image: kibana:5.1.2
+    ports:
+      - "5602:5601"
+  cerebro:
+    image: ludekvesely/elasticsearch-cerebro
+    environment:
+      - "ELASTICSEARCH_HOST=http://elasticsearch:9200"
+    ports:
+      - "9000:9000"
+  data:
+    image: nginx:stable
+    ports:
+      - "8081:80"
+    volumes:
+      - ./data:/usr/share/nginx/html
+  elasticsearch:
+    image: apisearch/elasticsearch:develop
+    ports:
+      - "9200:9200"
