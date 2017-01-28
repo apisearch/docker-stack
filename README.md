@@ -5,13 +5,13 @@ Run apisearch stack - frontend, backend, database.
 ### Production
 
 ```
-docker-compose up -d
+docker-compose -f docker-compose.prod.yml up -d
 ```
 
 ### Development
 
 ```
-docker-compose -f docker-compose.dev.yml up -d
+docker-compose up -d
 ```
 
 - Sample data: `http://localhost:8081/heureka_cz.xml`
