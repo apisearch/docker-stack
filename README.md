@@ -5,7 +5,10 @@ Run apisearch stack - frontend, backend, database.
 ### Production
 
 ```
-docker-compose -f docker-compose.prod.yml up -d
+docker-compose -f docker-compose.prod.yml up -d elasticsearch
+sleep 30
+docker-compose -f docker-compose.prod.yml run --rm create-index
+docker-compose -f docker-compose.prod.yml up -d apisearch web-admin
 ```
 
 ### Development
