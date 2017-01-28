@@ -4,6 +4,7 @@ web-admin:
    - "7010:8080"
   links:
    - apisearch
+  restart: always
 apisearch:
   image: apisearch/apisearch
   command: server
@@ -11,6 +12,7 @@ apisearch:
    - "7011:8080"
   links:
    - elasticsearch
+  restart: always
 import-products:
   image: apisearch/apisearch
   command: import
@@ -23,3 +25,6 @@ create-index:
    - elasticsearch
 elasticsearch:
   image: apisearch/elasticsearch
+  volumes:
+   - /mnt/apisearch/elasticsearch:/usr/share/elasticsearch/data
+  restart: always
