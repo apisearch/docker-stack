@@ -2,7 +2,7 @@ version: '2'
 
 services:
   kibana:
-    image: kibana:5.0.2
+    image: kibana:5.1.2
     ports:
       - "5602:5601"
   cerebro:

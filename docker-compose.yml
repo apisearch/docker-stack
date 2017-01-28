@@ -11,9 +11,14 @@ apisearch:
    - "7011:8080"
   links:
    - elasticsearch
+import-products:
+  image: apisearch/apisearch
+  command: import
+  links:
+   - elasticsearch
 create-index:
-  image: apisearch/apisearch:local
-  command: c
+  image: apisearch/apisearch:latest
+  command: createIndex
   links:
    - elasticsearch
 elasticsearch:
