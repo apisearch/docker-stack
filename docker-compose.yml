@@ -12,10 +12,9 @@ apisearch:
   links:
    - elasticsearch
 create-index:
-  image: apisearch/apisearch
-  command: i
+  image: apisearch/apisearch:local
+  command: c
   links:
    - elasticsearch
 elasticsearch:
   image: apisearch/elasticsearch
-
