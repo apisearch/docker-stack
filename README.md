@@ -1,6 +1,6 @@
 # docker-stack
 
-Run apisearch stack - frontend, backend, database.
+Run apisearch stack - frontend, backend, database (uses [custom Elasticsearch image](https://github.com/apisearch/elasticsearch)).
 
 ### Production
 
